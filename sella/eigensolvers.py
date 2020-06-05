@@ -69,12 +69,12 @@ def rayleigh_ritz(A, gamma, P, B=None, v0=None, vref=None, vreftol=0.99,
         R = (Ytilde @ vecs[:, :nneg]
              - B @ V @ vecs[:, :nneg] * lams[np.newaxis, :nneg])
         Rnorm = np.linalg.norm(R, axis=0)
-        print(Rnorm, lams[:nneg], Rnorm / lams[:nneg], seeking)
+        #print(Rnorm, lams[:nneg], Rnorm / lams[:nneg], seeking)
 
         # a hack for the optbench.org eigensolver convergence test
         if vref is not None:
             x0 = V @ vecs[:, 0]
-            print(np.abs(x0 @ vref))
+            #print(np.abs(x0 @ vref))
             if np.abs(x0 @ vref) > vreftol:
                 print("Dot product between your v0 and the final answer:",
                       np.abs(v0 @ x0) / np.linalg.norm(v0))
